@@ -1,10 +1,19 @@
+<!-- ------------------------------------------------------------------------------------ -->
+<!-- METAVERSE LABORATORY PORTAL&LOGO -->
+<!-- BY: AIDA ASHRAFPOUR; METAVERSE LAB TEAM-->
+<!-- PROJECT FOR: METAVERSE LAB;UNIVERSITY OF TEHRAN KISH INTERNATIONAL CAMPUS -->
+<!-- DATE: 1401/06/25-FRIDAY,SEPTEMBER 17,2022 -->
+<!-- ------------------------------------------------------------------------------------- -->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>Meta Lab</title>
+  <title>Meta Lab-Portal</title>
   <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
   <script src="https://unpkg.com/aframe-text-geometry-component/dist/aframe-text-geometry-component.min.js"></script>
@@ -79,15 +88,17 @@
 		reflection="directionalLight:#dirlight;"
 		ar-hit-test="target:#my-objects;type:footprint;footprintDepth:0.2;"
 		shadow="type: pcfsoft"
-		
     ar-cursor raycaster="objects: #my-objects *"
     >
+
+    <!-- 3d assets glb -->
       <a-assets>
         <a-asset-item id="spino" src="assets/metaLab.glb"></a-asset-item>
         <a-mixin id="animations"
           animation__click="property: components.material.material.color; type: color; to: black; startEvents: click; dur: 500";
         ></a-mixin>
       </a-assets>
+
       <!-- <a-camera position="0 0.4 1"></a-camera> -->
       <a-camera position="0 1.2 0" wasd-controls="acceleration: 20"></a-camera>
 
@@ -104,23 +115,24 @@
         shadow="cast:false;receive:true;"
         ar-shadow-helper="target:#my-objects;light:#dirlight;"
       ></a-entity>
-      This is hidden when the user first enters ar but becomes visible when the user can place it -->
 
-      //hit test 3d
+      <!-- This is hidden when the user first enters ar but becomes visible when the user can place it --> -->
+      <!-- hit test 3d -->
+
       <!-- <a-entity hide-on-hit-test-start  shadow id="my-objects" scale="0.2 0.2 0.2" position="0.2 0 -0.4"> --> -->
         <!-- <a-gltf-model scale="0.05 0.05 0.05" position="-2.2 2.15 -2" src="#spino" animation="property:rotation; to:0 360 0; loop:true; dur:2200>
         </a-gltf-model> -->
-
-        
-
-        
       <!-- </a-entity> -->
+
+      <!-- Portals and Logo(hit-test) -->
       <a-assets>
         <a-asset-item id="portal" src="assets/lab-portal.glb"></a-asset-item>
       </a-assets>
       <a-entity  image-portal="src: #portal"  position="0 1.5 -5" scale="0.2 0.2 0.2" ></a-entity>
       <a-gltf-model  hide-on-hit-test-start scale="0.006  0.006 0.006" position="-2 0 -3" src="#spino" shadow id="my-objects" animation="property:rotation; to:0 360 0; loop:true; dur:2200"></a-gltf-model>
     </a-scene>
+
+    <!-- Dom Overlay -->
     <div id="dom-overlay">
       <h1>
         Metaverse Laboratory
@@ -131,5 +143,6 @@
       <p><a href="https://instagram.com/metaverse_kish?igshid=YmMyMTA2M2Y=" target="_blank">Instagram</a></p>
       <div id="dom-overlay-message">Enter AR to start.</div>
     </div>
+
 </body>
 </html>
